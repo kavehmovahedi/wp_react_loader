@@ -14,14 +14,14 @@ To install WpReactLoader, you need to have Composer installed on your machine. I
 Once you have Composer installed, you can install WpReactLoader by running the following command in your terminal:
 
 ```bash
-composer Gcl/WpReactLoader
+composer GeekyCodeLab/WpReactLoader
 ```
 
 ## Usage
 After installing the library, you can use it in your WordPress plugin or theme like this:
 
 ```php
-$loader = new \Gcl\WpReactLoader\UI([
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
     'assets_url' => 'path/to/your/assets',
     'js_file' => 'main.js',
     'data' => [
@@ -56,7 +56,7 @@ When creating a new instance of the `UI` class, you can pass an array of options
 Here's an example of how to use these options:
 
 ```php
-$loader = new \Gcl\WpReactLoader\UI([
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
     'assets_url' => 'path/to/your/assets',
     'js_file' => 'main.js',
     'data' => [
@@ -88,7 +88,7 @@ When creating a new instance of the `UI` class, you can pass an array of options
 Here's an example of how to use these options:
 
 ```php
-$loader = new \Gcl\WpReactLoader\UI([
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
     'assets_url' => 'path/to/your/assets',
     'js_file' => 'main.js',
     'data' => [
