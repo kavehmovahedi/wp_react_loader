@@ -39,6 +39,9 @@ echo $loader->load_resource();
 
 This will load the React application from the specified JavaScript file and pass the specified data in a global JS variable called gcl_settings.
 You can set the global variable name by including 'localization_variable' key in the constructor array.
+
+The `load_resource` method generates HTML code and returns it as a string. This output can be used directly in your code, either by echoing it or by returning it within a shortcode.
+
 You can also set, get, and remove data parameters like this:
 
 ```php
@@ -110,30 +113,6 @@ echo $loader->load_resource();
 
 This will load the React application from the specified JavaScript file into an HTML container with the ID 'myApp' and the class 'myClass', and pass the specified data to a global JavaScript variable called 'myData'. The admin-ajax.php URL will not be included in the data.
 
-## Method Chaining
-
-In PHP, method chaining is a common technique where multiple methods from the same class are called in a single statement. This is possible when methods return the object itself (`$this`), allowing another method to be called on the result.
-
-Here's an example using the `set_param` method from the `UI` class:
-
-```php
-$loader = new \GeekyCodeLab\WpReactLoader\UI([
-    'assets_url' => 'path/to/your/assets',
-    'js_file' => 'main.js',
-]);
-
-$loader->set_param('api_url', 'https://your-api-url.com')
-       ->set_param('container_id', 'myApp')
-       ->set_param('container_class', 'myClass')
-       ->set_param('include_admin_ajax_url', false)
-       ->set_param('localization_variable', 'myData');
-
-echo $loader->load_resource();
-```
-
-I see, you want to explain method chaining in the context of your `UI` class in the README file. Here's how you can add that:
-
-```markdown
 ## Method Chaining
 
 The `set_param` method returns the `UI` object, enabling method chaining. Here's an example using the `set_param` method from the `UI` class:
