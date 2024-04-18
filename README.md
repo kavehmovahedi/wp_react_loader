@@ -46,37 +46,6 @@ $loader->set_param('new_param', 'new_value');
 echo $loader->get_param('new_param'); // Outputs: new_value
 $loader->remove_param('new_param');
 ```
-## Options
-
-When creating a new instance of the `UI` class, you can pass an array of options to the constructor. Here are all the possible options:
-
-- `assets_url` (string): The URL to the directory where your JavaScript file is located. Default is an empty string.
-- `js_file` (string): The name of your JavaScript file. Default is an empty string.
-- `data` (array): An array of data that you want to pass to your JavaScript file. Default is an empty array.
-- `container_id` (string): The ID of the HTML container where your React app will be loaded. Default is 'app'.
-- `container_class` (string): The class of the HTML container where your React app will be loaded. Default is an empty string.
-- `include_admin_ajax_url` (bool): Whether to include the admin-ajax.php URL in the data passed to the frontend. Default is true.
-- `localization_variable` (string): The name of the global JavaScript variable where your data will be stored. Default is 'gcl_settings'.
-
-Here's an example of how to use these options:
-
-```php
-$loader = new \GeekyCodeLab\WpReactLoader\UI([
-    'assets_url' => 'path/to/your/assets',
-    'js_file' => 'main.js',
-    'data' => [
-        'api_url' => 'https://your-api-url.com',
-    ],
-    'container_id' => 'myApp',
-    'container_class' => 'myClass',
-    'include_admin_ajax_url' => false,
-    'localization_variable' => 'myData',
-]);
-
-echo $loader->load_resource();
-```
-
-Here's an additional section for your README.md file that describes all possible options:
 
 ## Options
 
@@ -109,3 +78,81 @@ echo $loader->load_resource();
 ```
 
 This will load the React application from the specified JavaScript file into an HTML container with the ID 'myApp' and the class 'myClass', and pass the specified data to a global JavaScript variable called 'myData'. The admin-ajax.php URL will not be included in the data.
+
+## Methods
+
+The `UI` class provides the following methods:
+
+- `__construct(array $options = [])`: The constructor accepts an array of options. See the Options section for more details.
+
+- `set_param(string $key, mixed $value)`: This method allows you to set a parameter in the data array. The `$key` is the name of the parameter and `$value` is the value of the parameter.
+
+- `get_param(string $key)`: This method allows you to get a parameter from the data array. The `$key` is the name of the parameter. If the parameter does not exist, it returns `null`.
+
+- `load_resource()`: This method loads the React application. It returns a string of HTML that includes the script tag to load the JavaScript file and the div where the React app will be mounted.
+
+Here's an example of how to use these methods:
+
+```php
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
+    'assets_url' => 'path/to/your/assets',
+    'js_file' => 'main.js',
+]);
+
+$loader->set_param('api_url', 'https://your-api-url.com');
+$loader->set_param('container_id', 'myApp');
+$loader->set_param('container_class', 'myClass');
+$loader->set_param('include_admin_ajax_url', false);
+$loader->set_param('localization_variable', 'myData');
+
+echo $loader->load_resource();
+```
+
+This will load the React application from the specified JavaScript file into an HTML container with the ID 'myApp' and the class 'myClass', and pass the specified data to a global JavaScript variable called 'myData'. The admin-ajax.php URL will not be included in the data.
+
+## Method Chaining
+
+In PHP, method chaining is a common technique where multiple methods from the same class are called in a single statement. This is possible when methods return the object itself (`$this`), allowing another method to be called on the result.
+
+Here's an example using the `set_param` method from the `UI` class:
+
+```php
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
+    'assets_url' => 'path/to/your/assets',
+    'js_file' => 'main.js',
+]);
+
+$loader->set_param('api_url', 'https://your-api-url.com')
+       ->set_param('container_id', 'myApp')
+       ->set_param('container_class', 'myClass')
+       ->set_param('include_admin_ajax_url', false)
+       ->set_param('localization_variable', 'myData');
+
+echo $loader->load_resource();
+```
+
+I see, you want to explain method chaining in the context of your `UI` class in the README file. Here's how you can add that:
+
+```markdown
+## Method Chaining
+
+The `set_param` method returns the `UI` object, enabling method chaining. Here's an example using the `set_param` method from the `UI` class:
+
+```php
+$loader = new \GeekyCodeLab\WpReactLoader\UI([
+    'assets_url' => 'path/to/your/assets',
+    'js_file' => 'main.js',
+]);
+
+$loader->set_param('api_url', 'https://your-api-url.com')
+       ->set_param('container_id', 'myApp')
+       ->set_param('container_class', 'myClass')
+       ->set_param('include_admin_ajax_url', false)
+       ->set_param('localization_variable', 'myData');
+
+echo $loader->load_resource();
+```
+
+In this example, each call to `set_param` returns the `UI` object itself, allowing another `set_param` call to be made on the same line. This is more concise and often more readable than making each call on a separate line. The final call to `load_resource` is made on a new line because it does not return the `UI` object and therefore cannot be chained.
+
+This explanation should help users of your class understand how they can use method chaining to make their code more concise and readable.
