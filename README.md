@@ -2,6 +2,11 @@
 
 WpReactLoader is a composer library designed to simplify the process of loading React frontend projects in WordPress and passing data to them, a process known as localizing the script.
 
+WpReactLoader solves the problem where a script may be manipulating the DOM after the page is loaded and you receive an error like this:
+```
+DOMException: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+```
+
 ## Features
 
 - Easy loading of React frontend projects in WordPress.
