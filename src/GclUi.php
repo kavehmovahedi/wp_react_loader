@@ -58,7 +58,7 @@ class UI {
      * @param mixed $value The value of the parameter to set.
      * @return $this Returns the current object to allow for method chaining.
      */
-    public function set_param( string $key, mixed $value ) {
+    public function set_param( string $key, $value ) {
         $this->data[$key] = $value;
         return $this;
     }
@@ -69,7 +69,7 @@ class UI {
      * @param string $key The key of the parameter to retrieve.
      * @return mixed|null Returns the value of the parameter if it exists, or null if it does not.
      */
-    public function get_param( string $key ): mixed {
+    public function get_param( string $key ) {
         return $this->data[$key] ?? null;
     }
 
@@ -90,7 +90,7 @@ class UI {
      * @param array|null $data The data array to prepare. If null, the instance's data array is used.
      * @return array Returns the prepared data array.
      */
-    private function prepare_data(array|null $data = null): array {
+    private function prepare_data($data = null): array {
         $data = $data ? $data : $this->data;
 
         if ( $this->include_admin_ajax_url ) {
@@ -107,7 +107,7 @@ class UI {
      * @param string|null $file_url The URL of the file. If null, the method will generate the URL.
      * @return string Returns the URL of the file. If the URL cannot be generated, returns an empty string.
      */
-    private function get_file_url(string|null $file_url = null): string {
+    private function get_file_url($file_url = null): string {
         if( $file_url ) {
             return $file_url;
         }
@@ -131,7 +131,7 @@ class UI {
      * @param array|null $data The data to pass to the script. If null, the instance's data array is used.
      * @return string Returns a string of HTML that loads the React application.
      */
-    public function load_resource(string|null $file_url = null, array|null $data = null ): string {
+    public function load_resource($file_url = null, $data = null ): string {
         $this->prepare_data($data);
 
         return sprintf(
