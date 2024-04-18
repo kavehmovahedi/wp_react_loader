@@ -73,7 +73,6 @@ echo $loader->load_resource();
 
 Here's an additional section for your README.md file that describes all possible options:
 
-```markdown
 ## Options
 
 When creating a new instance of the `UI` class, you can pass an array of options to the constructor. Here are all the possible options:
