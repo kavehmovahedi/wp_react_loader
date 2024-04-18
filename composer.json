@@ -1,11 +1,11 @@
 {
-    "name": "gcl/wp_react_loader",
+    "name": "geekycodelab/wp_react_loader",
     "description": "A small library for loading react projects in WordPress plugins",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Gcl\\WpReactLoader\\": "src/"
+            "GrrkyCodeLab\\WpReactLoader\\": "src/"
         }
     },
     "authors": [

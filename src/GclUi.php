@@ -1,5 +1,5 @@
 <?php
-namespace Gcl\WpReactLoader;
+namespace GrrkyCodeLab\WpReactLoader;
 
 class UI {
     private const DEFAULT_ASSETS_URL = '';
