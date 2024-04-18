@@ -1,0 +1,18 @@
+{
+    "name": "gcl/wp_react_loader",
+    "description": "A small library for loading react projects in WordPress plugins",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Gcl\\WpReactLoader\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kaveh Movahed",
+            "email": "kavehmovahedi@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
